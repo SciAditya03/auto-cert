@@ -1,0 +1,517 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #020b24;
+  color: #f8fafc;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.portal {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(19, 104, 207, .28), transparent 30%),
+    radial-gradient(circle at 88% 90%, rgba(211, 154, 43, .18), transparent 30%),
+    linear-gradient(135deg, #02091d 0%, #071b43 48%, #02091d 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.portal::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(220, 174, 70, .45);
+  pointer-events: none;
+}
+
+.glow {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: .12;
+  pointer-events: none;
+}
+
+.glowOne {
+  background: #1588ff;
+  top: -200px;
+  left: -180px;
+}
+
+.glowTwo {
+  background: #d49a2e;
+  bottom: -250px;
+  right: -160px;
+}
+
+.hero {
+  width: min(920px, calc(100% - 40px));
+  margin: auto;
+  padding: 56px 0 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.vitMark {
+  font-family: Georgia, serif;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  color: #fff;
+}
+
+.divider {
+  width: 1px;
+  height: 58px;
+  background: rgba(218, 174, 79, .8);
+}
+
+.scope {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  line-height: 1.05;
+  font-family: Georgia, serif;
+  font-size: 17px;
+}
+
+.scope span {
+  margin-top: 5px;
+  color: #d9a83f;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.eyebrow {
+  text-align: center;
+  margin-top: 55px;
+  color: #e2ad42;
+  letter-spacing: 7px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(46px, 8vw, 82px);
+  letter-spacing: 2px;
+  margin: 12px 0 12px;
+  color: #fff;
+}
+
+.subtitle {
+  text-align: center;
+  max-width: 660px;
+  margin: 0 auto 4px;
+  color: #cbd5e1;
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+.card {
+  background: rgba(255,255,255,.97);
+  color: #07183d;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.35);
+  border: 1px solid rgba(226,173,66,.65);
+}
+
+label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.inputRow {
+  display: flex;
+  gap: 12px;
+}
+
+input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 16px 17px;
+  outline: none;
+  color: #07183d;
+  font-size: 16px;
+}
+
+input:focus {
+  border-color: #c28b25;
+  box-shadow: 0 0 0 3px rgba(194,139,37,.15);
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 0 22px;
+  min-height: 52px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #d7a33a, #a86f16);
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 8px 22px rgba(167,111,22,.28);
+}
+
+button:disabled {
+  opacity: .55;
+  cursor: wait;
+}
+
+.hint {
+  font-size: 13px;
+  color: #64748b;
+  margin: 11px 0 0;
+}
+
+.error {
+  margin-top: 16px;
+  background: #fff1f2;
+  color: #be123c;
+  border: 1px solid #fecdd3;
+  padding: 12px 14px;
+  border-radius: 10px;
+}
+
+.results {
+  margin-top: 25px;
+}
+
+.verified {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(74,222,128,.3);
+  border-radius: 14px;
+  padding: 14px 17px;
+}
+
+.verified span {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #16a34a;
+  font-weight: 900;
+}
+
+.verified div {
+  display: flex;
+  flex-direction: column;
+}
+
+.verified small {
+  color: #cbd5e1;
+  margin-top: 2px;
+}
+
+.certificateGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.certificateCard {
+  background: rgba(255,255,255,.96);
+  color: #07183d;
+  border-radius: 16px;
+  padding: 22px;
+  border-top: 4px solid #d9a83f;
+  box-shadow: 0 16px 40px rgba(0,0,0,.2);
+}
+
+.cardIcon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: #07183d;
+  color: #e4ad43;
+  font-weight: 900;
+}
+
+.certificateCard h2 {
+  font-family: Georgia, serif;
+  font-size: 21px;
+  margin: 16px 0 8px;
+}
+
+.certificateCard p {
+  color: #64748b;
+  line-height: 1.5;
+  min-height: 45px;
+}
+
+.certificateCard button {
+  width: 100%;
+  margin-top: 8px;
+}
+
+footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  padding: 20px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  color: #94a3b8;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    padding-top: 40px;
+  }
+
+  .brandRow {
+    gap: 12px;
+  }
+
+  .vitMark {
+    font-size: 32px;
+  }
+
+  .scope {
+    font-size: 13px;
+  }
+
+  .inputRow,
+  .certificateGrid {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .inputRow button {
+    min-height: 50px;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.footerEvent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.creatorCredit {
+  margin-top: 8px;
+  margin-bottom: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  color: rgba(5, 248, 195, 0.58);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.15px;
+
+  transition: all 0.25s ease;
+}
+
+.creatorCredit .heart {
+  color: #f43f5e;
+  font-size: 14px;
+  margin: 0 1px;
+
+  animation: heartbeat 1.8s ease-in-out infinite;
+}
+
+.creatorCredit .creatorName {
+  color: rgba(255, 255, 255, 0.88);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.creatorCredit .linkedinLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  padding: 4px 9px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.creatorCredit .linkedinLink svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+.creatorCredit .linkedinLink:hover {
+  color: #60a5fa;
+  background: rgba(96, 165, 250, 0.1);
+  border-color: rgba(96, 165, 250, 0.3);
+  transform: translateY(-1px);
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  10% {
+    transform: scale(1.15);
+  }
+
+  20% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.1);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}
+
+.heart {
+  color: #ef4444;
+  font-size: 13px;
+}
+
+.creatorName {
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 500;
+}
+
+.linkedinLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #60a5fa;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.linkedinLink:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.linkedinLink svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+.downloadLimitNotice {
+  margin: 8px auto 4px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  text-align: center;
+}
+
+.downloadLimitNotice strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.resultMessage {
+  width: min(680px, 100%);
+  margin: 22px auto;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-radius: 16px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.achievementMessage {
+  background: rgba(251, 191, 36, 0.10);
+  border: 1px solid rgba(251, 191, 36, 0.28);
+}
+
+.participationMessage {
+  background: rgba(59, 159, 243, 0.08);
+  border: 1px solid rgba(96, 181, 255, 0.22);
+}
+
+.resultMessageIcon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.resultMessage h3 {
+  margin: 0 0 5px;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.resultMessage p {
+  margin: 0 0 4px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.resultMessage span {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 12px;
+}
